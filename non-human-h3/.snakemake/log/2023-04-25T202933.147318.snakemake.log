@@ -1,0 +1,999 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count    min threads    max threads
+-------------  -------  -------------  -------------
+align                8              1              1
+all                  1              1              1
+ancestral            8              1              1
+cleavage_site        1              1              1
+export               8              1              1
+filter               8              1              1
+parse                7              1              1
+refine               8              1              1
+traits               8              1              1
+translate            8              1              1
+tree                 8              1              1
+total               73              1              1
+
+Select jobs to execute...
+
+[Tue Apr 25 20:29:33 2023]
+Job 5: 
+        Filtering to
+          - 50 sequence(s) per year country host subtype
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Updated input files: config/dropped_strains_h3nx.txt, config/include_strains_h3nx.txt
+
+
+        augur filter             --sequences results/sequences_h3nx_ha.fasta             --metadata results/metadata_h3nx_ha.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_ha.fasta             --group-by year country host subtype             --sequences-per-group 50             --min-date 1997             --exclude-where host=laboratoryderived host=ferret host=unknown host=other country=? region=?             --min-length 1600             --non-nucleotide
+        
+
+[Tue Apr 25 20:29:33 2023]
+Job 52: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered/h3nx_pa.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered/h3nx_pa.fa             --output-sequences results/sequences_h3nx_pa.fasta             --output-metadata results/metadata_h3nx_pa.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Tue Apr 25 20:29:33 2023]
+Job 43: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered/h3nx_np.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered/h3nx_np.fa             --output-sequences results/sequences_h3nx_np.fasta             --output-metadata results/metadata_h3nx_np.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Tue Apr 25 20:29:33 2023]
+Job 34: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered/h3nx_na.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered/h3nx_na.fa             --output-sequences results/sequences_h3nx_na.fasta             --output-metadata results/metadata_h3nx_na.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Tue Apr 25 20:29:33 2023]
+Job 25: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered/h3nx_pb1.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered/h3nx_pb1.fa             --output-sequences results/sequences_h3nx_pb1.fasta             --output-metadata results/metadata_h3nx_pb1.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Tue Apr 25 20:29:33 2023]
+Job 16: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered/h3nx_pb2.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered/h3nx_pb2.fa             --output-sequences results/sequences_h3nx_pb2.fasta             --output-metadata results/metadata_h3nx_pb2.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+[Tue Apr 25 20:29:36 2023]
+Finished job 43.
+1 of 73 steps (1%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:36 2023]
+Job 42: 
+        Filtering to
+          - 50 sequence(s) per year country host subtype
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/metadata_h3nx_np.tsv, results/sequences_h3nx_np.fasta
+
+
+        augur filter             --sequences results/sequences_h3nx_np.fasta             --metadata results/metadata_h3nx_np.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_np.fasta             --group-by year country host subtype             --sequences-per-group 50             --min-date 1997             --exclude-where host=laboratoryderived host=ferret host=unknown host=other country=? region=?             --min-length 1400             --non-nucleotide
+        
+[Tue Apr 25 20:29:37 2023]
+Finished job 34.
+2 of 73 steps (3%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:37 2023]
+Job 33: 
+        Filtering to
+          - 50 sequence(s) per year country host subtype
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/metadata_h3nx_na.tsv, results/sequences_h3nx_na.fasta
+
+
+        augur filter             --sequences results/sequences_h3nx_na.fasta             --metadata results/metadata_h3nx_na.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_na.fasta             --group-by year country host subtype             --sequences-per-group 50             --min-date 1997             --exclude-where host=laboratoryderived host=ferret host=unknown host=other country=? region=?             --min-length 1270             --non-nucleotide
+        
+[Tue Apr 25 20:29:37 2023]
+Finished job 5.
+3 of 73 steps (4%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:37 2023]
+Job 4: 
+        Aligning sequences to config/references/h3nx_ha.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_ha.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_ha.fasta             --reference-sequence config/references/h3nx_ha.gb             --output results/aligned_h3nx_ha.fasta             --remove-reference             --nthreads 1
+        
+[Tue Apr 25 20:29:37 2023]
+Finished job 52.
+4 of 73 steps (5%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:37 2023]
+Job 51: 
+        Filtering to
+          - 50 sequence(s) per year country host subtype
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/metadata_h3nx_pa.tsv, results/sequences_h3nx_pa.fasta
+
+
+        augur filter             --sequences results/sequences_h3nx_pa.fasta             --metadata results/metadata_h3nx_pa.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_pa.fasta             --group-by year country host subtype             --sequences-per-group 50             --min-date 1997             --exclude-where host=laboratoryderived host=ferret host=unknown host=other country=? region=?             --min-length 2000             --non-nucleotide
+        
+[Tue Apr 25 20:29:37 2023]
+Finished job 16.
+5 of 73 steps (7%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:37 2023]
+Job 15: 
+        Filtering to
+          - 50 sequence(s) per year country host subtype
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/metadata_h3nx_pb2.tsv, results/sequences_h3nx_pb2.fasta
+
+
+        augur filter             --sequences results/sequences_h3nx_pb2.fasta             --metadata results/metadata_h3nx_pb2.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_pb2.fasta             --group-by year country host subtype             --sequences-per-group 50             --min-date 1997             --exclude-where host=laboratoryderived host=ferret host=unknown host=other country=? region=?             --min-length 2100             --non-nucleotide
+        
+[Tue Apr 25 20:29:37 2023]
+Finished job 25.
+6 of 73 steps (8%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:37 2023]
+Job 24: 
+        Filtering to
+          - 50 sequence(s) per year country host subtype
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/sequences_h3nx_pb1.fasta, results/metadata_h3nx_pb1.tsv
+
+
+        augur filter             --sequences results/sequences_h3nx_pb1.fasta             --metadata results/metadata_h3nx_pb1.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_pb1.fasta             --group-by year country host subtype             --sequences-per-group 50             --min-date 1997             --exclude-where host=laboratoryderived host=ferret host=unknown host=other country=? region=?             --min-length 2100             --non-nucleotide
+        
+[Tue Apr 25 20:29:39 2023]
+Finished job 42.
+7 of 73 steps (10%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:39 2023]
+Job 70: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered/h3nx_mp.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered/h3nx_mp.fa             --output-sequences results/sequences_h3nx_mp.fasta             --output-metadata results/metadata_h3nx_mp.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+[Tue Apr 25 20:29:40 2023]
+Finished job 33.
+8 of 73 steps (11%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:40 2023]
+Job 41: 
+        Aligning sequences to config/references/h3nx_np.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_np.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_np.fasta             --reference-sequence config/references/h3nx_np.gb             --output results/aligned_h3nx_np.fasta             --remove-reference             --nthreads 1
+        
+[Tue Apr 25 20:29:40 2023]
+Finished job 51.
+9 of 73 steps (12%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:40 2023]
+Job 50: 
+        Aligning sequences to config/references/h3nx_pa.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_pa.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_pa.fasta             --reference-sequence config/references/h3nx_pa.gb             --output results/aligned_h3nx_pa.fasta             --remove-reference             --nthreads 1
+        
+[Tue Apr 25 20:29:40 2023]
+Finished job 24.
+10 of 73 steps (14%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:40 2023]
+Job 23: 
+        Aligning sequences to config/references/h3nx_pb1.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_pb1.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_pb1.fasta             --reference-sequence config/references/h3nx_pb1.gb             --output results/aligned_h3nx_pb1.fasta             --remove-reference             --nthreads 1
+        
+[Tue Apr 25 20:29:40 2023]
+Finished job 15.
+11 of 73 steps (15%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:40 2023]
+Job 14: 
+        Aligning sequences to config/references/h3nx_pb2.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_pb2.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_pb2.fasta             --reference-sequence config/references/h3nx_pb2.gb             --output results/aligned_h3nx_pb2.fasta             --remove-reference             --nthreads 1
+        
+[Tue Apr 25 20:29:41 2023]
+Finished job 70.
+12 of 73 steps (16%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:41 2023]
+Job 69: 
+        Filtering to
+          - 50 sequence(s) per year country host subtype
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/sequences_h3nx_mp.fasta, results/metadata_h3nx_mp.tsv
+
+
+        augur filter             --sequences results/sequences_h3nx_mp.fasta             --metadata results/metadata_h3nx_mp.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_mp.fasta             --group-by year country host subtype             --sequences-per-group 50             --min-date 1997             --exclude-where host=laboratoryderived host=ferret host=unknown host=other country=? region=?             --min-length 900             --non-nucleotide
+        
+[Tue Apr 25 20:29:43 2023]
+Finished job 69.
+13 of 73 steps (18%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:29:43 2023]
+Job 32: 
+        Aligning sequences to config/references/h3nx_na.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_na.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_na.fasta             --reference-sequence config/references/h3nx_na.gb             --output results/aligned_h3nx_na.fasta             --remove-reference             --nthreads 1
+        
+[Tue Apr 25 20:44:17 2023]
+Finished job 41.
+14 of 73 steps (19%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:44:17 2023]
+Job 40: Building tree
+Reason: Input files updated by another job: results/aligned_h3nx_np.fasta
+
+
+        augur tree             --alignment results/aligned_h3nx_np.fasta             --output results/tree-raw_h3nx_np.nwk             --method iqtree             --nthreads 1
+        
+[Tue Apr 25 20:44:56 2023]
+Finished job 32.
+15 of 73 steps (21%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:44:56 2023]
+Job 31: Building tree
+Reason: Input files updated by another job: results/aligned_h3nx_na.fasta
+
+
+        augur tree             --alignment results/aligned_h3nx_na.fasta             --output results/tree-raw_h3nx_na.nwk             --method iqtree             --nthreads 1
+        
+[Tue Apr 25 20:48:59 2023]
+Finished job 14.
+16 of 73 steps (22%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:48:59 2023]
+Job 13: Building tree
+Reason: Input files updated by another job: results/aligned_h3nx_pb2.fasta
+
+
+        augur tree             --alignment results/aligned_h3nx_pb2.fasta             --output results/tree-raw_h3nx_pb2.nwk             --method iqtree             --nthreads 1
+        
+[Tue Apr 25 20:49:38 2023]
+Finished job 50.
+17 of 73 steps (23%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:49:38 2023]
+Job 49: Building tree
+Reason: Input files updated by another job: results/aligned_h3nx_pa.fasta
+
+
+        augur tree             --alignment results/aligned_h3nx_pa.fasta             --output results/tree-raw_h3nx_pa.nwk             --method iqtree             --nthreads 1
+        
+[Tue Apr 25 20:50:07 2023]
+Finished job 4.
+18 of 73 steps (25%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:50:07 2023]
+Job 10: determining sequences that harbor furin cleavage sites
+Reason: Input files updated by another job: results/aligned_h3nx_ha.fasta
+
+
+        python scripts/annotate-ha-cleavage-site.py             --alignment results/aligned_h3nx_ha.fasta             --furin_site_motif results/cleavage-site_h3nx_ha.json             --cleavage_site_sequence results/cleavage-site-sequences_h3nx_ha.json
+        
+[Tue Apr 25 20:50:08 2023]
+Finished job 10.
+19 of 73 steps (26%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:50:08 2023]
+Job 3: Building tree
+Reason: Input files updated by another job: results/aligned_h3nx_ha.fasta
+
+
+        augur tree             --alignment results/aligned_h3nx_ha.fasta             --output results/tree-raw_h3nx_ha.nwk             --method iqtree             --nthreads 1
+        
+[Tue Apr 25 20:50:35 2023]
+Finished job 23.
+20 of 73 steps (27%) done
+Select jobs to execute...
+
+[Tue Apr 25 20:50:35 2023]
+Job 22: Building tree
+Reason: Input files updated by another job: results/aligned_h3nx_pb1.fasta
+
+
+        augur tree             --alignment results/aligned_h3nx_pb1.fasta             --output results/tree-raw_h3nx_pb1.nwk             --method iqtree             --nthreads 1
+        
+[Tue Apr 25 21:04:29 2023]
+Finished job 40.
+21 of 73 steps (29%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:04:29 2023]
+Job 39: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Input files updated by another job: results/metadata_h3nx_np.tsv, results/tree-raw_h3nx_np.nwk, results/aligned_h3nx_np.fasta
+
+
+        augur refine             --tree results/tree-raw_h3nx_np.nwk             --alignment results/aligned_h3nx_np.fasta             --metadata results/metadata_h3nx_np.tsv             --output-tree results/tree_h3nx_np.nwk             --output-node-data results/branch-lengths_h3nx_np.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal             --clock-filter-iqd 4
+        
+[Tue Apr 25 21:12:56 2023]
+Finished job 31.
+22 of 73 steps (30%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:12:56 2023]
+Job 30: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Input files updated by another job: results/metadata_h3nx_na.tsv, results/tree-raw_h3nx_na.nwk, results/aligned_h3nx_na.fasta
+
+
+        augur refine             --tree results/tree-raw_h3nx_na.nwk             --alignment results/aligned_h3nx_na.fasta             --metadata results/metadata_h3nx_na.tsv             --output-tree results/tree_h3nx_na.nwk             --output-node-data results/branch-lengths_h3nx_na.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal             --clock-filter-iqd 4
+        
+[Tue Apr 25 21:13:45 2023]
+Finished job 39.
+23 of 73 steps (32%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:13:45 2023]
+Job 45: Reconstructing ancestral sequences and mutations
+Reason: Input files updated by another job: results/tree_h3nx_np.nwk, results/aligned_h3nx_np.fasta
+
+
+        augur ancestral             --tree results/tree_h3nx_np.nwk             --alignment results/aligned_h3nx_np.fasta             --output-node-data results/nt-muts_h3nx_np.json             --inference joint            --keep-ambiguous
+        
+[Tue Apr 25 21:13:57 2023]
+Finished job 45.
+24 of 73 steps (33%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:13:57 2023]
+Job 46: Translating amino acid sequences
+Reason: Input files updated by another job: results/nt-muts_h3nx_np.json, results/tree_h3nx_np.nwk
+
+
+        augur translate             --tree results/tree_h3nx_np.nwk             --ancestral-sequences results/nt-muts_h3nx_np.json             --reference-sequence config/references/h3nx_np.gb             --output results/aa-muts_h3nx_np.json
+        
+[Tue Apr 25 21:13:59 2023]
+Finished job 46.
+25 of 73 steps (34%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:13:59 2023]
+Job 61: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered/h3nx_ns.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered/h3nx_ns.fa             --output-sequences results/sequences_h3nx_ns.fasta             --output-metadata results/metadata_h3nx_ns.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+[Tue Apr 25 21:14:01 2023]
+Finished job 61.
+26 of 73 steps (36%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:14:01 2023]
+Job 60: 
+        Filtering to
+          - 50 sequence(s) per year country host subtype
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/metadata_h3nx_ns.tsv, results/sequences_h3nx_ns.fasta
+
+
+        augur filter             --sequences results/sequences_h3nx_ns.fasta             --metadata results/metadata_h3nx_ns.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_ns.fasta             --group-by year country host subtype             --sequences-per-group 50             --min-date 1997             --exclude-where host=laboratoryderived host=ferret host=unknown host=other country=? region=?             --min-length 800             --non-nucleotide
+        
+[Tue Apr 25 21:14:03 2023]
+Finished job 60.
+27 of 73 steps (37%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:14:03 2023]
+Job 68: 
+        Aligning sequences to config/references/h3nx_mp.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_mp.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_mp.fasta             --reference-sequence config/references/h3nx_mp.gb             --output results/aligned_h3nx_mp.fasta             --remove-reference             --nthreads 1
+        
+[Tue Apr 25 21:14:59 2023]
+Finished job 13.
+28 of 73 steps (38%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:14:59 2023]
+Job 12: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Input files updated by another job: results/metadata_h3nx_pb2.tsv, results/aligned_h3nx_pb2.fasta, results/tree-raw_h3nx_pb2.nwk
+
+
+        augur refine             --tree results/tree-raw_h3nx_pb2.nwk             --alignment results/aligned_h3nx_pb2.fasta             --metadata results/metadata_h3nx_pb2.tsv             --output-tree results/tree_h3nx_pb2.nwk             --output-node-data results/branch-lengths_h3nx_pb2.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal             --clock-filter-iqd 4
+        
+[Tue Apr 25 21:19:10 2023]
+Finished job 22.
+29 of 73 steps (40%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:19:10 2023]
+Job 21: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Input files updated by another job: results/metadata_h3nx_pb1.tsv, results/tree-raw_h3nx_pb1.nwk, results/aligned_h3nx_pb1.fasta
+
+
+        augur refine             --tree results/tree-raw_h3nx_pb1.nwk             --alignment results/aligned_h3nx_pb1.fasta             --metadata results/metadata_h3nx_pb1.tsv             --output-tree results/tree_h3nx_pb1.nwk             --output-node-data results/branch-lengths_h3nx_pb1.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal             --clock-filter-iqd 4
+        
+[Tue Apr 25 21:20:05 2023]
+Finished job 49.
+30 of 73 steps (41%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:20:05 2023]
+Job 48: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Input files updated by another job: results/metadata_h3nx_pa.tsv, results/tree-raw_h3nx_pa.nwk, results/aligned_h3nx_pa.fasta
+
+
+        augur refine             --tree results/tree-raw_h3nx_pa.nwk             --alignment results/aligned_h3nx_pa.fasta             --metadata results/metadata_h3nx_pa.tsv             --output-tree results/tree_h3nx_pa.nwk             --output-node-data results/branch-lengths_h3nx_pa.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal             --clock-filter-iqd 4
+        
+[Tue Apr 25 21:22:14 2023]
+Finished job 3.
+31 of 73 steps (42%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:22:14 2023]
+Job 2: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Input files updated by another job: results/aligned_h3nx_ha.fasta, results/tree-raw_h3nx_ha.nwk
+
+
+        augur refine             --tree results/tree-raw_h3nx_ha.nwk             --alignment results/aligned_h3nx_ha.fasta             --metadata results/metadata_h3nx_ha.tsv             --output-tree results/tree_h3nx_ha.nwk             --output-node-data results/branch-lengths_h3nx_ha.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal             --clock-filter-iqd 4
+        
+[Tue Apr 25 21:22:41 2023]
+Finished job 30.
+32 of 73 steps (44%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:22:41 2023]
+Job 36: Reconstructing ancestral sequences and mutations
+Reason: Input files updated by another job: results/aligned_h3nx_na.fasta, results/tree_h3nx_na.nwk
+
+
+        augur ancestral             --tree results/tree_h3nx_na.nwk             --alignment results/aligned_h3nx_na.fasta             --output-node-data results/nt-muts_h3nx_na.json             --inference joint            --keep-ambiguous
+        
+[Tue Apr 25 21:22:55 2023]
+Finished job 36.
+33 of 73 steps (45%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:22:55 2023]
+Job 37: Translating amino acid sequences
+Reason: Input files updated by another job: results/nt-muts_h3nx_na.json, results/tree_h3nx_na.nwk
+
+
+        augur translate             --tree results/tree_h3nx_na.nwk             --ancestral-sequences results/nt-muts_h3nx_na.json             --reference-sequence config/references/h3nx_na.gb             --output results/aa-muts_h3nx_na.json
+        
+[Tue Apr 25 21:22:58 2023]
+Finished job 37.
+34 of 73 steps (47%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:22:58 2023]
+Job 59: 
+        Aligning sequences to config/references/h3nx_ns.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_ns.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_ns.fasta             --reference-sequence config/references/h3nx_ns.gb             --output results/aligned_h3nx_ns.fasta             --remove-reference             --nthreads 1
+        
+[Tue Apr 25 21:23:10 2023]
+Finished job 12.
+35 of 73 steps (48%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:23:10 2023]
+Job 18: Reconstructing ancestral sequences and mutations
+Reason: Input files updated by another job: results/tree_h3nx_pb2.nwk, results/aligned_h3nx_pb2.fasta
+
+
+        augur ancestral             --tree results/tree_h3nx_pb2.nwk             --alignment results/aligned_h3nx_pb2.fasta             --output-node-data results/nt-muts_h3nx_pb2.json             --inference joint            --keep-ambiguous
+        
+[Tue Apr 25 21:23:26 2023]
+Finished job 18.
+36 of 73 steps (49%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:23:26 2023]
+Job 19: Translating amino acid sequences
+Reason: Input files updated by another job: results/tree_h3nx_pb2.nwk, results/nt-muts_h3nx_pb2.json
+
+
+        augur translate             --tree results/tree_h3nx_pb2.nwk             --ancestral-sequences results/nt-muts_h3nx_pb2.json             --reference-sequence config/references/h3nx_pb2.gb             --output results/aa-muts_h3nx_pb2.json
+        
+[Tue Apr 25 21:23:29 2023]
+Finished job 19.
+37 of 73 steps (51%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:23:29 2023]
+Job 35: Inferring ancestral traits for host country
+Reason: Input files updated by another job: results/metadata_h3nx_na.tsv, results/tree_h3nx_na.nwk
+
+
+        augur traits             --tree results/tree_h3nx_na.nwk             --metadata results/metadata_h3nx_na.tsv             --output results/traits_h3nx_na.json             --columns host country             --confidence
+        
+[Tue Apr 25 21:24:41 2023]
+Finished job 68.
+38 of 73 steps (52%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:24:41 2023]
+Job 67: Building tree
+Reason: Input files updated by another job: results/aligned_h3nx_mp.fasta
+
+
+        augur tree             --alignment results/aligned_h3nx_mp.fasta             --output results/tree-raw_h3nx_mp.nwk             --method iqtree             --nthreads 1
+        
+[Tue Apr 25 21:25:04 2023]
+Finished job 35.
+39 of 73 steps (53%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:25:04 2023]
+Job 29: Exporting data files for for auspice
+Reason: Input files updated by another job: results/metadata_h3nx_na.tsv, results/nt-muts_h3nx_na.json, results/traits_h3nx_na.json, results/aa-muts_h3nx_na.json, results/branch-lengths_h3nx_na.json, results/tree_h3nx_na.nwk
+
+
+        augur export v2             --tree results/tree_h3nx_na.nwk             --metadata results/metadata_h3nx_na.tsv             --node-data results/branch-lengths_h3nx_na.json results/traits_h3nx_na.json results/nt-muts_h3nx_na.json results/aa-muts_h3nx_na.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence             --output auspice/nonhuman_influenza_h3nx_na.json
+        
+[Tue Apr 25 21:25:17 2023]
+Finished job 29.
+40 of 73 steps (55%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:25:17 2023]
+Job 44: Inferring ancestral traits for host country
+Reason: Input files updated by another job: results/metadata_h3nx_np.tsv, results/tree_h3nx_np.nwk
+
+
+        augur traits             --tree results/tree_h3nx_np.nwk             --metadata results/metadata_h3nx_np.tsv             --output results/traits_h3nx_np.json             --columns host country             --confidence
+        
+[Tue Apr 25 21:26:19 2023]
+Finished job 44.
+41 of 73 steps (56%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:26:19 2023]
+Job 38: Exporting data files for for auspice
+Reason: Input files updated by another job: results/aa-muts_h3nx_np.json, results/metadata_h3nx_np.tsv, results/traits_h3nx_np.json, results/nt-muts_h3nx_np.json, results/branch-lengths_h3nx_np.json, results/tree_h3nx_np.nwk
+
+
+        augur export v2             --tree results/tree_h3nx_np.nwk             --metadata results/metadata_h3nx_np.tsv             --node-data results/branch-lengths_h3nx_np.json results/traits_h3nx_np.json results/nt-muts_h3nx_np.json results/aa-muts_h3nx_np.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence             --output auspice/nonhuman_influenza_h3nx_np.json
+        
+[Tue Apr 25 21:26:30 2023]
+Finished job 38.
+42 of 73 steps (58%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:26:30 2023]
+Job 17: Inferring ancestral traits for host country
+Reason: Input files updated by another job: results/tree_h3nx_pb2.nwk, results/metadata_h3nx_pb2.tsv
+
+
+        augur traits             --tree results/tree_h3nx_pb2.nwk             --metadata results/metadata_h3nx_pb2.tsv             --output results/traits_h3nx_pb2.json             --columns host country             --confidence
+        
+[Tue Apr 25 21:27:10 2023]
+Finished job 17.
+43 of 73 steps (59%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:27:10 2023]
+Job 11: Exporting data files for for auspice
+Reason: Input files updated by another job: results/tree_h3nx_pb2.nwk, results/branch-lengths_h3nx_pb2.json, results/aa-muts_h3nx_pb2.json, results/metadata_h3nx_pb2.tsv, results/nt-muts_h3nx_pb2.json, results/traits_h3nx_pb2.json
+
+
+        augur export v2             --tree results/tree_h3nx_pb2.nwk             --metadata results/metadata_h3nx_pb2.tsv             --node-data results/branch-lengths_h3nx_pb2.json results/traits_h3nx_pb2.json results/nt-muts_h3nx_pb2.json results/aa-muts_h3nx_pb2.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence             --output auspice/nonhuman_influenza_h3nx_pb2.json
+        
+[Tue Apr 25 21:27:22 2023]
+Finished job 11.
+44 of 73 steps (60%) done
+[Tue Apr 25 21:28:28 2023]
+Finished job 21.
+45 of 73 steps (62%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:28:28 2023]
+Job 26: Inferring ancestral traits for host country
+Reason: Input files updated by another job: results/metadata_h3nx_pb1.tsv, results/tree_h3nx_pb1.nwk
+
+
+        augur traits             --tree results/tree_h3nx_pb1.nwk             --metadata results/metadata_h3nx_pb1.tsv             --output results/traits_h3nx_pb1.json             --columns host country             --confidence
+        
+
+[Tue Apr 25 21:28:28 2023]
+Job 27: Reconstructing ancestral sequences and mutations
+Reason: Input files updated by another job: results/tree_h3nx_pb1.nwk, results/aligned_h3nx_pb1.fasta
+
+
+        augur ancestral             --tree results/tree_h3nx_pb1.nwk             --alignment results/aligned_h3nx_pb1.fasta             --output-node-data results/nt-muts_h3nx_pb1.json             --inference joint            --keep-ambiguous
+        
+[Tue Apr 25 21:28:46 2023]
+Finished job 27.
+46 of 73 steps (63%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:28:46 2023]
+Job 28: Translating amino acid sequences
+Reason: Input files updated by another job: results/tree_h3nx_pb1.nwk, results/nt-muts_h3nx_pb1.json
+
+
+        augur translate             --tree results/tree_h3nx_pb1.nwk             --ancestral-sequences results/nt-muts_h3nx_pb1.json             --reference-sequence config/references/h3nx_pb1.gb             --output results/aa-muts_h3nx_pb1.json
+        
+[Tue Apr 25 21:28:49 2023]
+Finished job 28.
+47 of 73 steps (64%) done
+[Tue Apr 25 21:29:21 2023]
+Finished job 26.
+48 of 73 steps (66%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:29:21 2023]
+Job 20: Exporting data files for for auspice
+Reason: Input files updated by another job: results/aa-muts_h3nx_pb1.json, results/traits_h3nx_pb1.json, results/branch-lengths_h3nx_pb1.json, results/metadata_h3nx_pb1.tsv, results/tree_h3nx_pb1.nwk, results/nt-muts_h3nx_pb1.json
+
+
+        augur export v2             --tree results/tree_h3nx_pb1.nwk             --metadata results/metadata_h3nx_pb1.tsv             --node-data results/branch-lengths_h3nx_pb1.json results/traits_h3nx_pb1.json results/nt-muts_h3nx_pb1.json results/aa-muts_h3nx_pb1.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence             --output auspice/nonhuman_influenza_h3nx_pb1.json
+        
+[Tue Apr 25 21:29:33 2023]
+Finished job 20.
+49 of 73 steps (67%) done
+[Tue Apr 25 21:30:55 2023]
+Finished job 48.
+50 of 73 steps (68%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:30:55 2023]
+Job 54: Reconstructing ancestral sequences and mutations
+Reason: Input files updated by another job: results/aligned_h3nx_pa.fasta, results/tree_h3nx_pa.nwk
+
+
+        augur ancestral             --tree results/tree_h3nx_pa.nwk             --alignment results/aligned_h3nx_pa.fasta             --output-node-data results/nt-muts_h3nx_pa.json             --inference joint            --keep-ambiguous
+        
+
+[Tue Apr 25 21:30:55 2023]
+Job 53: Inferring ancestral traits for host country
+Reason: Input files updated by another job: results/metadata_h3nx_pa.tsv, results/tree_h3nx_pa.nwk
+
+
+        augur traits             --tree results/tree_h3nx_pa.nwk             --metadata results/metadata_h3nx_pa.tsv             --output results/traits_h3nx_pa.json             --columns host country             --confidence
+        
+[Tue Apr 25 21:31:12 2023]
+Finished job 54.
+51 of 73 steps (70%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:31:12 2023]
+Job 55: Translating amino acid sequences
+Reason: Input files updated by another job: results/nt-muts_h3nx_pa.json, results/tree_h3nx_pa.nwk
+
+
+        augur translate             --tree results/tree_h3nx_pa.nwk             --ancestral-sequences results/nt-muts_h3nx_pa.json             --reference-sequence config/references/h3nx_pa.gb             --output results/aa-muts_h3nx_pa.json
+        
+[Tue Apr 25 21:31:15 2023]
+Finished job 55.
+52 of 73 steps (71%) done
+[Tue Apr 25 21:31:42 2023]
+Finished job 53.
+53 of 73 steps (73%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:31:42 2023]
+Job 47: Exporting data files for for auspice
+Reason: Input files updated by another job: results/metadata_h3nx_pa.tsv, results/traits_h3nx_pa.json, results/aa-muts_h3nx_pa.json, results/nt-muts_h3nx_pa.json, results/branch-lengths_h3nx_pa.json, results/tree_h3nx_pa.nwk
+
+
+        augur export v2             --tree results/tree_h3nx_pa.nwk             --metadata results/metadata_h3nx_pa.tsv             --node-data results/branch-lengths_h3nx_pa.json results/traits_h3nx_pa.json results/nt-muts_h3nx_pa.json results/aa-muts_h3nx_pa.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence             --output auspice/nonhuman_influenza_h3nx_pa.json
+        
+[Tue Apr 25 21:31:54 2023]
+Finished job 47.
+54 of 73 steps (74%) done
+[Tue Apr 25 21:32:21 2023]
+Finished job 59.
+55 of 73 steps (75%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:32:21 2023]
+Job 58: Building tree
+Reason: Input files updated by another job: results/aligned_h3nx_ns.fasta
+
+
+        augur tree             --alignment results/aligned_h3nx_ns.fasta             --output results/tree-raw_h3nx_ns.nwk             --method iqtree             --nthreads 1
+        
+[Tue Apr 25 21:33:12 2023]
+Finished job 2.
+56 of 73 steps (77%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:33:12 2023]
+Job 7: Inferring ancestral traits for host country
+Reason: Input files updated by another job: results/tree_h3nx_ha.nwk
+
+
+        augur traits             --tree results/tree_h3nx_ha.nwk             --metadata results/metadata_h3nx_ha.tsv             --output results/traits_h3nx_ha.json             --columns host country             --confidence
+        
+
+[Tue Apr 25 21:33:12 2023]
+Job 8: Reconstructing ancestral sequences and mutations
+Reason: Input files updated by another job: results/aligned_h3nx_ha.fasta, results/tree_h3nx_ha.nwk
+
+
+        augur ancestral             --tree results/tree_h3nx_ha.nwk             --alignment results/aligned_h3nx_ha.fasta             --output-node-data results/nt-muts_h3nx_ha.json             --inference joint            --keep-ambiguous
+        
+[Tue Apr 25 21:33:30 2023]
+Finished job 8.
+57 of 73 steps (78%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:33:30 2023]
+Job 9: Translating amino acid sequences
+Reason: Input files updated by another job: results/nt-muts_h3nx_ha.json, results/tree_h3nx_ha.nwk
+
+
+        augur translate             --tree results/tree_h3nx_ha.nwk             --ancestral-sequences results/nt-muts_h3nx_ha.json             --reference-sequence config/references/h3nx_ha.gb             --output results/aa-muts_h3nx_ha.json
+        
+[Tue Apr 25 21:33:33 2023]
+Finished job 9.
+58 of 73 steps (79%) done
+[Tue Apr 25 21:34:18 2023]
+Finished job 7.
+59 of 73 steps (81%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:34:18 2023]
+Job 1: Exporting data files for for auspice
+Reason: Input files updated by another job: results/branch-lengths_h3nx_ha.json, results/cleavage-site_h3nx_ha.json, results/nt-muts_h3nx_ha.json, results/traits_h3nx_ha.json, results/tree_h3nx_ha.nwk, results/aa-muts_h3nx_ha.json, results/cleavage-site-sequences_h3nx_ha.json
+
+
+        augur export v2             --tree results/tree_h3nx_ha.nwk             --metadata results/metadata_h3nx_ha.tsv             --node-data results/branch-lengths_h3nx_ha.json results/traits_h3nx_ha.json results/nt-muts_h3nx_ha.json results/aa-muts_h3nx_ha.json results/cleavage-site_h3nx_ha.json results/cleavage-site-sequences_h3nx_ha.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence             --output auspice/nonhuman_influenza_h3nx_ha.json
+        
+[Tue Apr 25 21:34:34 2023]
+Finished job 1.
+60 of 73 steps (82%) done
+[Tue Apr 25 21:38:09 2023]
+Finished job 67.
+61 of 73 steps (84%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:38:09 2023]
+Job 66: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Input files updated by another job: results/tree-raw_h3nx_mp.nwk, results/metadata_h3nx_mp.tsv, results/aligned_h3nx_mp.fasta
+
+
+        augur refine             --tree results/tree-raw_h3nx_mp.nwk             --alignment results/aligned_h3nx_mp.fasta             --metadata results/metadata_h3nx_mp.tsv             --output-tree results/tree_h3nx_mp.nwk             --output-node-data results/branch-lengths_h3nx_mp.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal             --clock-filter-iqd 4
+        
+[Tue Apr 25 21:45:27 2023]
+Finished job 58.
+62 of 73 steps (85%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:45:27 2023]
+Job 57: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Input files updated by another job: results/metadata_h3nx_ns.tsv, results/tree-raw_h3nx_ns.nwk, results/aligned_h3nx_ns.fasta
+
+
+        augur refine             --tree results/tree-raw_h3nx_ns.nwk             --alignment results/aligned_h3nx_ns.fasta             --metadata results/metadata_h3nx_ns.tsv             --output-tree results/tree_h3nx_ns.nwk             --output-node-data results/branch-lengths_h3nx_ns.json             --timetree             --coalescent const             --date-confidence             --date-inference marginal             --clock-filter-iqd 4
+        
+[Tue Apr 25 21:47:47 2023]
+Finished job 66.
+63 of 73 steps (86%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:47:47 2023]
+Job 71: Inferring ancestral traits for host country
+Reason: Input files updated by another job: results/metadata_h3nx_mp.tsv, results/tree_h3nx_mp.nwk
+
+
+        augur traits             --tree results/tree_h3nx_mp.nwk             --metadata results/metadata_h3nx_mp.tsv             --output results/traits_h3nx_mp.json             --columns host country             --confidence
+        
+
+[Tue Apr 25 21:47:47 2023]
+Job 72: Reconstructing ancestral sequences and mutations
+Reason: Input files updated by another job: results/aligned_h3nx_mp.fasta, results/tree_h3nx_mp.nwk
+
+
+        augur ancestral             --tree results/tree_h3nx_mp.nwk             --alignment results/aligned_h3nx_mp.fasta             --output-node-data results/nt-muts_h3nx_mp.json             --inference joint            --keep-ambiguous
+        
+[Tue Apr 25 21:47:56 2023]
+Finished job 72.
+64 of 73 steps (88%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:47:56 2023]
+Job 73: Translating amino acid sequences
+Reason: Input files updated by another job: results/tree_h3nx_mp.nwk, results/nt-muts_h3nx_mp.json
+
+
+        augur translate             --tree results/tree_h3nx_mp.nwk             --ancestral-sequences results/nt-muts_h3nx_mp.json             --reference-sequence config/references/h3nx_mp.gb             --output results/aa-muts_h3nx_mp.json
+        
+[Tue Apr 25 21:47:58 2023]
+Finished job 73.
+65 of 73 steps (89%) done
+[Tue Apr 25 21:48:58 2023]
+Finished job 71.
+66 of 73 steps (90%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:48:58 2023]
+Job 65: Exporting data files for for auspice
+Reason: Input files updated by another job: results/metadata_h3nx_mp.tsv, results/traits_h3nx_mp.json, results/tree_h3nx_mp.nwk, results/aa-muts_h3nx_mp.json, results/branch-lengths_h3nx_mp.json, results/nt-muts_h3nx_mp.json
+
+
+        augur export v2             --tree results/tree_h3nx_mp.nwk             --metadata results/metadata_h3nx_mp.tsv             --node-data results/branch-lengths_h3nx_mp.json results/traits_h3nx_mp.json results/nt-muts_h3nx_mp.json results/aa-muts_h3nx_mp.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence             --output auspice/nonhuman_influenza_h3nx_mp.json
+        
+[Tue Apr 25 21:49:07 2023]
+Finished job 65.
+67 of 73 steps (92%) done
+[Tue Apr 25 21:53:45 2023]
+Finished job 57.
+68 of 73 steps (93%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:53:45 2023]
+Job 62: Inferring ancestral traits for host country
+Reason: Input files updated by another job: results/metadata_h3nx_ns.tsv, results/tree_h3nx_ns.nwk
+
+
+        augur traits             --tree results/tree_h3nx_ns.nwk             --metadata results/metadata_h3nx_ns.tsv             --output results/traits_h3nx_ns.json             --columns host country             --confidence
+        
+
+[Tue Apr 25 21:53:45 2023]
+Job 63: Reconstructing ancestral sequences and mutations
+Reason: Input files updated by another job: results/tree_h3nx_ns.nwk, results/aligned_h3nx_ns.fasta
+
+
+        augur ancestral             --tree results/tree_h3nx_ns.nwk             --alignment results/aligned_h3nx_ns.fasta             --output-node-data results/nt-muts_h3nx_ns.json             --inference joint            --keep-ambiguous
+        
+[Tue Apr 25 21:53:54 2023]
+Finished job 63.
+69 of 73 steps (95%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:53:54 2023]
+Job 64: Translating amino acid sequences
+Reason: Input files updated by another job: results/tree_h3nx_ns.nwk, results/nt-muts_h3nx_ns.json
+
+
+        augur translate             --tree results/tree_h3nx_ns.nwk             --ancestral-sequences results/nt-muts_h3nx_ns.json             --reference-sequence config/references/h3nx_ns.gb             --output results/aa-muts_h3nx_ns.json
+        
+[Tue Apr 25 21:53:56 2023]
+Finished job 64.
+70 of 73 steps (96%) done
+[Tue Apr 25 21:54:35 2023]
+Finished job 62.
+71 of 73 steps (97%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:54:35 2023]
+Job 56: Exporting data files for for auspice
+Reason: Input files updated by another job: results/aa-muts_h3nx_ns.json, results/traits_h3nx_ns.json, results/branch-lengths_h3nx_ns.json, results/nt-muts_h3nx_ns.json, results/metadata_h3nx_ns.tsv, results/tree_h3nx_ns.nwk
+
+
+        augur export v2             --tree results/tree_h3nx_ns.nwk             --metadata results/metadata_h3nx_ns.tsv             --node-data results/branch-lengths_h3nx_ns.json results/traits_h3nx_ns.json results/nt-muts_h3nx_ns.json results/aa-muts_h3nx_ns.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence             --output auspice/nonhuman_influenza_h3nx_ns.json
+        
+[Tue Apr 25 21:54:46 2023]
+Finished job 56.
+72 of 73 steps (99%) done
+Select jobs to execute...
+
+[Tue Apr 25 21:54:46 2023]
+localrule all:
+    input: auspice/nonhuman_influenza_h3nx_ha.json, auspice/nonhuman_influenza_h3nx_pb2.json, auspice/nonhuman_influenza_h3nx_pb1.json, auspice/nonhuman_influenza_h3nx_na.json, auspice/nonhuman_influenza_h3nx_np.json, auspice/nonhuman_influenza_h3nx_pa.json, auspice/nonhuman_influenza_h3nx_ns.json, auspice/nonhuman_influenza_h3nx_mp.json
+    jobid: 0
+    reason: Input files updated by another job: auspice/nonhuman_influenza_h3nx_np.json, auspice/nonhuman_influenza_h3nx_pb2.json, auspice/nonhuman_influenza_h3nx_ha.json, auspice/nonhuman_influenza_h3nx_mp.json, auspice/nonhuman_influenza_h3nx_pa.json, auspice/nonhuman_influenza_h3nx_ns.json, auspice/nonhuman_influenza_h3nx_na.json, auspice/nonhuman_influenza_h3nx_pb1.json
+    resources: tmpdir=/tmp
+
+[Tue Apr 25 21:54:46 2023]
+Finished job 0.
+73 of 73 steps (100%) done
+Complete log: .snakemake/log/2023-04-25T202933.147318.snakemake.log

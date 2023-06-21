@@ -1,0 +1,212 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job       count    min threads    max threads
+------  -------  -------------  -------------
+all           1              1              1
+export        8              1              1
+traits        8              1              1
+total        17              1              1
+
+Select jobs to execute...
+
+[Tue May 16 19:54:26 2023]
+Job 35: Inferring ancestral traits for host country region subtype
+Reason: Params have changed since last execution
+
+
+        augur traits             --tree results/tree_h3nx_na.nwk             --metadata results/metadata_h3nx_na.tsv             --output results/traits_h3nx_na.json             --columns host country region subtype             --confidence
+        
+
+[Tue May 16 19:54:26 2023]
+Job 7: Inferring ancestral traits for host country region subtype
+Reason: Params have changed since last execution
+
+
+        augur traits             --tree results/tree_h3nx_ha.nwk             --metadata results/metadata_h3nx_ha.tsv             --output results/traits_h3nx_ha.json             --columns host country region subtype             --confidence
+        
+
+[Tue May 16 19:54:26 2023]
+Job 71: Inferring ancestral traits for host country region subtype
+Reason: Params have changed since last execution
+
+
+        augur traits             --tree results/tree_h3nx_mp.nwk             --metadata results/metadata_h3nx_mp.tsv             --output results/traits_h3nx_mp.json             --columns host country region subtype             --confidence
+        
+
+[Tue May 16 19:54:26 2023]
+Job 62: Inferring ancestral traits for host country region subtype
+Reason: Params have changed since last execution
+
+
+        augur traits             --tree results/tree_h3nx_ns.nwk             --metadata results/metadata_h3nx_ns.tsv             --output results/traits_h3nx_ns.json             --columns host country region subtype             --confidence
+        
+
+[Tue May 16 19:54:26 2023]
+Job 53: Inferring ancestral traits for host country region subtype
+Reason: Params have changed since last execution
+
+
+        augur traits             --tree results/tree_h3nx_pa.nwk             --metadata results/metadata_h3nx_pa.tsv             --output results/traits_h3nx_pa.json             --columns host country region subtype             --confidence
+        
+
+[Tue May 16 19:54:26 2023]
+Job 44: Inferring ancestral traits for host country region subtype
+Reason: Params have changed since last execution
+
+
+        augur traits             --tree results/tree_h3nx_np.nwk             --metadata results/metadata_h3nx_np.tsv             --output results/traits_h3nx_np.json             --columns host country region subtype             --confidence
+        
+[Tue May 16 19:56:00 2023]
+Finished job 44.
+1 of 17 steps (6%) done
+Select jobs to execute...
+
+[Tue May 16 19:56:00 2023]
+Job 38: Exporting data files for for auspice
+Reason: Input files updated by another job: results/traits_h3nx_np.json
+
+
+        augur export v2             --tree results/tree_h3nx_np.nwk             --metadata results/metadata_h3nx_np.tsv             --node-data results/branch-lengths_h3nx_np.json results/traits_h3nx_np.json results/nt-muts_h3nx_np.json results/aa-muts_h3nx_np.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence 	    --colors config/colors_h3nx.tsv             --output auspice/nonhuman_influenza_h3nx_np.json
+        
+[Tue May 16 19:56:05 2023]
+Finished job 53.
+2 of 17 steps (12%) done
+Select jobs to execute...
+
+[Tue May 16 19:56:05 2023]
+Job 47: Exporting data files for for auspice
+Reason: Input files updated by another job: results/traits_h3nx_pa.json
+
+
+        augur export v2             --tree results/tree_h3nx_pa.nwk             --metadata results/metadata_h3nx_pa.tsv             --node-data results/branch-lengths_h3nx_pa.json results/traits_h3nx_pa.json results/nt-muts_h3nx_pa.json results/aa-muts_h3nx_pa.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence 	    --colors config/colors_h3nx.tsv             --output auspice/nonhuman_influenza_h3nx_pa.json
+        
+[Tue May 16 19:56:05 2023]
+Finished job 71.
+3 of 17 steps (18%) done
+Select jobs to execute...
+
+[Tue May 16 19:56:05 2023]
+Job 65: Exporting data files for for auspice
+Reason: Input files updated by another job: results/traits_h3nx_mp.json
+
+
+        augur export v2             --tree results/tree_h3nx_mp.nwk             --metadata results/metadata_h3nx_mp.tsv             --node-data results/branch-lengths_h3nx_mp.json results/traits_h3nx_mp.json results/nt-muts_h3nx_mp.json results/aa-muts_h3nx_mp.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence 	    --colors config/colors_h3nx.tsv             --output auspice/nonhuman_influenza_h3nx_mp.json
+        
+[Tue May 16 19:56:06 2023]
+Finished job 62.
+4 of 17 steps (24%) done
+Select jobs to execute...
+
+[Tue May 16 19:56:06 2023]
+Job 56: Exporting data files for for auspice
+Reason: Input files updated by another job: results/traits_h3nx_ns.json
+
+
+        augur export v2             --tree results/tree_h3nx_ns.nwk             --metadata results/metadata_h3nx_ns.tsv             --node-data results/branch-lengths_h3nx_ns.json results/traits_h3nx_ns.json results/nt-muts_h3nx_ns.json results/aa-muts_h3nx_ns.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence 	    --colors config/colors_h3nx.tsv             --output auspice/nonhuman_influenza_h3nx_ns.json
+        
+[Tue May 16 19:56:11 2023]
+Finished job 38.
+5 of 17 steps (29%) done
+Select jobs to execute...
+
+[Tue May 16 19:56:11 2023]
+Job 26: Inferring ancestral traits for host country region subtype
+Reason: Params have changed since last execution
+
+
+        augur traits             --tree results/tree_h3nx_pb1.nwk             --metadata results/metadata_h3nx_pb1.tsv             --output results/traits_h3nx_pb1.json             --columns host country region subtype             --confidence
+        
+[Tue May 16 19:56:18 2023]
+Finished job 65.
+6 of 17 steps (35%) done
+Select jobs to execute...
+
+[Tue May 16 19:56:18 2023]
+Job 17: Inferring ancestral traits for host country region subtype
+Reason: Params have changed since last execution
+
+
+        augur traits             --tree results/tree_h3nx_pb2.nwk             --metadata results/metadata_h3nx_pb2.tsv             --output results/traits_h3nx_pb2.json             --columns host country region subtype             --confidence
+        
+[Tue May 16 19:56:21 2023]
+Finished job 56.
+7 of 17 steps (41%) done
+[Tue May 16 19:56:22 2023]
+Finished job 47.
+8 of 17 steps (47%) done
+[Tue May 16 19:56:34 2023]
+Finished job 7.
+9 of 17 steps (53%) done
+Select jobs to execute...
+
+[Tue May 16 19:56:34 2023]
+Job 1: Exporting data files for for auspice
+Reason: Input files updated by another job: results/traits_h3nx_ha.json
+
+
+        augur export v2             --tree results/tree_h3nx_ha.nwk             --metadata results/metadata_h3nx_ha.tsv             --node-data results/branch-lengths_h3nx_ha.json results/traits_h3nx_ha.json results/nt-muts_h3nx_ha.json results/aa-muts_h3nx_ha.json results/cleavage-site_h3nx_ha.json results/cleavage-site-sequences_h3nx_ha.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence 	    --colors config/colors_h3nx.tsv             --output auspice/nonhuman_influenza_h3nx_ha.json
+        
+[Tue May 16 19:56:43 2023]
+Finished job 35.
+10 of 17 steps (59%) done
+Select jobs to execute...
+
+[Tue May 16 19:56:43 2023]
+Job 29: Exporting data files for for auspice
+Reason: Input files updated by another job: results/traits_h3nx_na.json
+
+
+        augur export v2             --tree results/tree_h3nx_na.nwk             --metadata results/metadata_h3nx_na.tsv             --node-data results/branch-lengths_h3nx_na.json results/traits_h3nx_na.json results/nt-muts_h3nx_na.json results/aa-muts_h3nx_na.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence 	    --colors config/colors_h3nx.tsv             --output auspice/nonhuman_influenza_h3nx_na.json
+        
+[Tue May 16 19:56:46 2023]
+Finished job 1.
+11 of 17 steps (65%) done
+[Tue May 16 19:56:53 2023]
+Finished job 29.
+12 of 17 steps (71%) done
+[Tue May 16 19:57:12 2023]
+Finished job 26.
+13 of 17 steps (76%) done
+Select jobs to execute...
+
+[Tue May 16 19:57:12 2023]
+Job 20: Exporting data files for for auspice
+Reason: Input files updated by another job: results/traits_h3nx_pb1.json
+
+
+        augur export v2             --tree results/tree_h3nx_pb1.nwk             --metadata results/metadata_h3nx_pb1.tsv             --node-data results/branch-lengths_h3nx_pb1.json results/traits_h3nx_pb1.json results/nt-muts_h3nx_pb1.json results/aa-muts_h3nx_pb1.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence 	    --colors config/colors_h3nx.tsv             --output auspice/nonhuman_influenza_h3nx_pb1.json
+        
+[Tue May 16 19:57:15 2023]
+Finished job 17.
+14 of 17 steps (82%) done
+Select jobs to execute...
+
+[Tue May 16 19:57:15 2023]
+Job 11: Exporting data files for for auspice
+Reason: Input files updated by another job: results/traits_h3nx_pb2.json
+
+
+        augur export v2             --tree results/tree_h3nx_pb2.nwk             --metadata results/metadata_h3nx_pb2.tsv             --node-data results/branch-lengths_h3nx_pb2.json results/traits_h3nx_pb2.json results/nt-muts_h3nx_pb2.json results/aa-muts_h3nx_pb2.json            --auspice-config config/auspice_config_h3nx.json             --include-root-sequence 	    --colors config/colors_h3nx.tsv             --output auspice/nonhuman_influenza_h3nx_pb2.json
+        
+[Tue May 16 19:57:22 2023]
+Finished job 20.
+15 of 17 steps (88%) done
+[Tue May 16 19:57:24 2023]
+Finished job 11.
+16 of 17 steps (94%) done
+Select jobs to execute...
+
+[Tue May 16 19:57:24 2023]
+localrule all:
+    input: auspice/nonhuman_influenza_h3nx_ha.json, auspice/nonhuman_influenza_h3nx_pb2.json, auspice/nonhuman_influenza_h3nx_pb1.json, auspice/nonhuman_influenza_h3nx_na.json, auspice/nonhuman_influenza_h3nx_np.json, auspice/nonhuman_influenza_h3nx_pa.json, auspice/nonhuman_influenza_h3nx_ns.json, auspice/nonhuman_influenza_h3nx_mp.json
+    jobid: 0
+    reason: Input files updated by another job: auspice/nonhuman_influenza_h3nx_na.json, auspice/nonhuman_influenza_h3nx_pa.json, auspice/nonhuman_influenza_h3nx_ha.json, auspice/nonhuman_influenza_h3nx_ns.json, auspice/nonhuman_influenza_h3nx_np.json, auspice/nonhuman_influenza_h3nx_pb2.json, auspice/nonhuman_influenza_h3nx_mp.json, auspice/nonhuman_influenza_h3nx_pb1.json
+    resources: tmpdir=/tmp
+
+[Tue May 16 19:57:24 2023]
+Finished job 0.
+17 of 17 steps (100%) done
+Complete log: .snakemake/log/2023-05-16T195426.170199.snakemake.log

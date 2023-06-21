@@ -1,0 +1,395 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count    min threads    max threads
+-------------  -------  -------------  -------------
+align                8              1              1
+all                  1              1              1
+ancestral            8              1              1
+cleavage_site        1              1              1
+export               8              1              1
+filter               8              1              1
+parse                8              1              1
+refine               8              1              1
+traits               8              1              1
+translate            8              1              1
+tree                 8              1              1
+total               74              1              1
+
+Select jobs to execute...
+
+[Thu May 11 20:54:56 2023]
+Job 52: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered_and_integrated/h3nx_pa.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered_and_integrated/h3nx_pa.fa             --output-sequences results/sequences_h3nx_pa.fasta             --output-metadata results/metadata_h3nx_pa.tsv             --fields strain accession subtype date host country region species order             --prettify-fields country host region species order
+        
+
+[Thu May 11 20:54:56 2023]
+Job 43: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered_and_integrated/h3nx_np.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered_and_integrated/h3nx_np.fa             --output-sequences results/sequences_h3nx_np.fasta             --output-metadata results/metadata_h3nx_np.tsv             --fields strain accession subtype date host country region species order             --prettify-fields country host region species order
+        
+
+[Thu May 11 20:54:56 2023]
+Job 34: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered_and_integrated/h3nx_na.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered_and_integrated/h3nx_na.fa             --output-sequences results/sequences_h3nx_na.fasta             --output-metadata results/metadata_h3nx_na.tsv             --fields strain accession subtype date host country region species order             --prettify-fields country host region species order
+        
+
+[Thu May 11 20:54:56 2023]
+Job 6: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered_and_integrated/h3nx_ha.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered_and_integrated/h3nx_ha.fa             --output-sequences results/sequences_h3nx_ha.fasta             --output-metadata results/metadata_h3nx_ha.tsv             --fields strain accession subtype date host country region species order             --prettify-fields country host region species order
+        
+
+[Thu May 11 20:54:56 2023]
+Job 25: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered_and_integrated/h3nx_pb1.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered_and_integrated/h3nx_pb1.fa             --output-sequences results/sequences_h3nx_pb1.fasta             --output-metadata results/metadata_h3nx_pb1.tsv             --fields strain accession subtype date host country region species order             --prettify-fields country host region species order
+        
+
+[Thu May 11 20:54:56 2023]
+Job 16: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered_and_integrated/h3nx_pb2.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered_and_integrated/h3nx_pb2.fa             --output-sequences results/sequences_h3nx_pb2.fasta             --output-metadata results/metadata_h3nx_pb2.tsv             --fields strain accession subtype date host country region species order             --prettify-fields country host region species order
+        
+[Thu May 11 20:54:59 2023]
+Finished job 43.
+1 of 74 steps (1%) done
+Select jobs to execute...
+
+[Thu May 11 20:54:59 2023]
+Job 42: 
+        Filtering to
+          - 10 sequence(s) per year country host subtype region
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/sequences_h3nx_np.fasta, results/metadata_h3nx_np.tsv
+
+
+        augur filter             --sequences results/sequences_h3nx_np.fasta             --metadata results/metadata_h3nx_np.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_np.fasta             --group-by year country host subtype region             --sequences-per-group 10             --min-date 1997             --exclude-where host=ferret             --min-length 1400             --non-nucleotide
+        
+[Thu May 11 20:55:00 2023]
+Finished job 34.
+2 of 74 steps (3%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:00 2023]
+Job 33: 
+        Filtering to
+          - 10 sequence(s) per year country host subtype region
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/sequences_h3nx_na.fasta, results/metadata_h3nx_na.tsv
+
+
+        augur filter             --sequences results/sequences_h3nx_na.fasta             --metadata results/metadata_h3nx_na.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_na.fasta             --group-by year country host subtype region             --sequences-per-group 10             --min-date 1997             --exclude-where host=ferret             --min-length 1270             --non-nucleotide
+        
+[Thu May 11 20:55:01 2023]
+Finished job 25.
+3 of 74 steps (4%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:01 2023]
+Job 24: 
+        Filtering to
+          - 10 sequence(s) per year country host subtype region
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/metadata_h3nx_pb1.tsv, results/sequences_h3nx_pb1.fasta
+
+
+        augur filter             --sequences results/sequences_h3nx_pb1.fasta             --metadata results/metadata_h3nx_pb1.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_pb1.fasta             --group-by year country host subtype region             --sequences-per-group 10             --min-date 1997             --exclude-where host=ferret             --min-length 2100             --non-nucleotide
+        
+[Thu May 11 20:55:01 2023]
+Finished job 16.
+4 of 74 steps (5%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:01 2023]
+Job 15: 
+        Filtering to
+          - 10 sequence(s) per year country host subtype region
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/sequences_h3nx_pb2.fasta, results/metadata_h3nx_pb2.tsv
+
+
+        augur filter             --sequences results/sequences_h3nx_pb2.fasta             --metadata results/metadata_h3nx_pb2.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_pb2.fasta             --group-by year country host subtype region             --sequences-per-group 10             --min-date 1997             --exclude-where host=ferret             --min-length 2100             --non-nucleotide
+        
+[Thu May 11 20:55:01 2023]
+Finished job 52.
+5 of 74 steps (7%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:01 2023]
+Job 51: 
+        Filtering to
+          - 10 sequence(s) per year country host subtype region
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/sequences_h3nx_pa.fasta, results/metadata_h3nx_pa.tsv
+
+
+        augur filter             --sequences results/sequences_h3nx_pa.fasta             --metadata results/metadata_h3nx_pa.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_pa.fasta             --group-by year country host subtype region             --sequences-per-group 10             --min-date 1997             --exclude-where host=ferret             --min-length 2000             --non-nucleotide
+        
+[Thu May 11 20:55:01 2023]
+Finished job 6.
+6 of 74 steps (8%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:01 2023]
+Job 5: 
+        Filtering to
+          - 10 sequence(s) per year country host subtype region
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/sequences_h3nx_ha.fasta, results/metadata_h3nx_ha.tsv
+
+
+        augur filter             --sequences results/sequences_h3nx_ha.fasta             --metadata results/metadata_h3nx_ha.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_ha.fasta             --group-by year country host subtype region             --sequences-per-group 10             --min-date 1997             --exclude-where host=ferret             --min-length 1600             --non-nucleotide
+        
+[Thu May 11 20:55:02 2023]
+Finished job 42.
+7 of 74 steps (9%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:02 2023]
+Job 70: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered_and_integrated/h3nx_mp.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered_and_integrated/h3nx_mp.fa             --output-sequences results/sequences_h3nx_mp.fasta             --output-metadata results/metadata_h3nx_mp.tsv             --fields strain accession subtype date host country region species order             --prettify-fields country host region species order
+        
+[Thu May 11 20:55:03 2023]
+Finished job 33.
+8 of 74 steps (11%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:03 2023]
+Job 61: Parsing fasta into sequences and metadata
+Reason: Updated input files: h3nx_seg_filtered_and_integrated/h3nx_ns.fa
+
+
+        augur parse             --sequences h3nx_seg_filtered_and_integrated/h3nx_ns.fa             --output-sequences results/sequences_h3nx_ns.fasta             --output-metadata results/metadata_h3nx_ns.tsv             --fields strain accession subtype date host country region species order             --prettify-fields country host region species order
+        
+[Thu May 11 20:55:04 2023]
+Finished job 24.
+9 of 74 steps (12%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:04 2023]
+Job 23: 
+        Aligning sequences to config/references/h3nx_pb1.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_pb1.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_pb1.fasta             --reference-sequence config/references/h3nx_pb1.gb             --output results/aligned_h3nx_pb1.fasta             --remove-reference             --nthreads 1
+        
+[Thu May 11 20:55:04 2023]
+Finished job 51.
+10 of 74 steps (14%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:04 2023]
+Job 50: 
+        Aligning sequences to config/references/h3nx_pa.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_pa.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_pa.fasta             --reference-sequence config/references/h3nx_pa.gb             --output results/aligned_h3nx_pa.fasta             --remove-reference             --nthreads 1
+        
+[Thu May 11 20:55:04 2023]
+Finished job 15.
+11 of 74 steps (15%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:04 2023]
+Job 14: 
+        Aligning sequences to config/references/h3nx_pb2.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_pb2.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_pb2.fasta             --reference-sequence config/references/h3nx_pb2.gb             --output results/aligned_h3nx_pb2.fasta             --remove-reference             --nthreads 1
+        
+[Thu May 11 20:55:04 2023]
+Finished job 5.
+12 of 74 steps (16%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:04 2023]
+Job 4: 
+        Aligning sequences to config/references/h3nx_ha.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_ha.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_ha.fasta             --reference-sequence config/references/h3nx_ha.gb             --output results/aligned_h3nx_ha.fasta             --remove-reference             --nthreads 1
+        
+[Thu May 11 20:55:04 2023]
+Finished job 70.
+13 of 74 steps (18%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:04 2023]
+Job 69: 
+        Filtering to
+          - 10 sequence(s) per year country host subtype region
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/sequences_h3nx_mp.fasta, results/metadata_h3nx_mp.tsv
+
+
+        augur filter             --sequences results/sequences_h3nx_mp.fasta             --metadata results/metadata_h3nx_mp.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_mp.fasta             --group-by year country host subtype region             --sequences-per-group 10             --min-date 1997             --exclude-where host=ferret             --min-length 900             --non-nucleotide
+        
+[Thu May 11 20:55:05 2023]
+Finished job 61.
+14 of 74 steps (19%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:05 2023]
+Job 60: 
+        Filtering to
+          - 10 sequence(s) per year country host subtype region
+          - excluding strains in config/dropped_strains_h3nx.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1997
+        
+Reason: Input files updated by another job: results/metadata_h3nx_ns.tsv, results/sequences_h3nx_ns.fasta
+
+
+        augur filter             --sequences results/sequences_h3nx_ns.fasta             --metadata results/metadata_h3nx_ns.tsv             --exclude config/dropped_strains_h3nx.txt             --include config/include_strains_h3nx.txt             --output results/filtered_h3nx_ns.fasta             --group-by year country host subtype region             --sequences-per-group 10             --min-date 1997             --exclude-where host=ferret             --min-length 800             --non-nucleotide
+        
+[Thu May 11 20:55:06 2023]
+Finished job 69.
+15 of 74 steps (20%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:06 2023]
+Job 32: 
+        Aligning sequences to config/references/h3nx_na.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_na.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_na.fasta             --reference-sequence config/references/h3nx_na.gb             --output results/aligned_h3nx_na.fasta             --remove-reference             --nthreads 1
+        
+[Thu May 11 20:55:07 2023]
+Finished job 60.
+16 of 74 steps (22%) done
+Select jobs to execute...
+
+[Thu May 11 20:55:07 2023]
+Job 41: 
+        Aligning sequences to config/references/h3nx_np.gb
+          - filling gaps with N
+        
+Reason: Input files updated by another job: results/filtered_h3nx_np.fasta
+
+
+        augur align             --sequences results/filtered_h3nx_np.fasta             --reference-sequence config/references/h3nx_np.gb             --output results/aligned_h3nx_np.fasta             --remove-reference             --nthreads 1
+        
+Terminating processes on user request, this might take some time.
+[Thu May 11 20:55:21 2023]
+[Thu May 11 20:55:21 2023]
+Error in rule align:
+    jobid: 50
+    input: results/filtered_h3nx_pa.fasta, config/references/h3nx_pa.gb
+    output: results/aligned_h3nx_pa.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_h3nx_pa.fasta             --reference-sequence config/references/h3nx_pa.gb             --output results/aligned_h3nx_pa.fasta             --remove-reference             --nthreads 1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Error in rule align:
+    jobid: 32
+    input: results/filtered_h3nx_na.fasta, config/references/h3nx_na.gb
+    output: results/aligned_h3nx_na.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_h3nx_na.fasta             --reference-sequence config/references/h3nx_na.gb             --output results/aligned_h3nx_na.fasta             --remove-reference             --nthreads 1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu May 11 20:55:21 2023]
+Error in rule align:
+    jobid: 23
+    input: results/filtered_h3nx_pb1.fasta, config/references/h3nx_pb1.gb
+    output: results/aligned_h3nx_pb1.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_h3nx_pb1.fasta             --reference-sequence config/references/h3nx_pb1.gb             --output results/aligned_h3nx_pb1.fasta             --remove-reference             --nthreads 1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu May 11 20:55:21 2023]
+Error in rule align:
+    jobid: 14
+    input: results/filtered_h3nx_pb2.fasta, config/references/h3nx_pb2.gb
+    output: results/aligned_h3nx_pb2.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_h3nx_pb2.fasta             --reference-sequence config/references/h3nx_pb2.gb             --output results/aligned_h3nx_pb2.fasta             --remove-reference             --nthreads 1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu May 11 20:55:21 2023]
+Error in rule align:
+    jobid: 4
+    input: results/filtered_h3nx_ha.fasta, config/references/h3nx_ha.gb
+    output: results/aligned_h3nx_ha.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_h3nx_ha.fasta             --reference-sequence config/references/h3nx_ha.gb             --output results/aligned_h3nx_ha.fasta             --remove-reference             --nthreads 1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Thu May 11 20:55:21 2023]
+Error in rule align:
+    jobid: 41
+    input: results/filtered_h3nx_np.fasta, config/references/h3nx_np.gb
+    output: results/aligned_h3nx_np.fasta
+    shell:
+        
+        augur align             --sequences results/filtered_h3nx_np.fasta             --reference-sequence config/references/h3nx_np.gb             --output results/aligned_h3nx_np.fasta             --remove-reference             --nthreads 1
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2023-05-11T205455.753619.snakemake.log

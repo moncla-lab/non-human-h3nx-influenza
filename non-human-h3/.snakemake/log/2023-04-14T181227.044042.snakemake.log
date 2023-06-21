@@ -1,0 +1,76 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	8	align
+	1	all
+	8	ancestral
+	1	cleavage_site
+	8	export
+	8	filter
+	8	parse
+	8	refine
+	8	traits
+	8	translate
+	8	tree
+	74
+
+[Fri Apr 14 18:12:27 2023]
+Job 26: Parsing fasta into sequences and metadata
+
+
+        augur parse             --sequences h3nx_seg/h3nx_na.fa             --output-sequences results/sequences_h3nx_na.fasta             --output-metadata results/metadata_h3nx_na.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Fri Apr 14 18:12:27 2023]
+Job 46: Parsing fasta into sequences and metadata
+
+
+        augur parse             --sequences h3nx_seg/h3nx_mp.fa             --output-sequences results/sequences_h3nx_mp.fasta             --output-metadata results/metadata_h3nx_mp.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Fri Apr 14 18:12:27 2023]
+Job 36: Parsing fasta into sequences and metadata
+
+
+        augur parse             --sequences h3nx_seg/h3nx_pa.fa             --output-sequences results/sequences_h3nx_pa.fasta             --output-metadata results/metadata_h3nx_pa.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Fri Apr 14 18:12:27 2023]
+Job 10: Parsing fasta into sequences and metadata
+
+
+        augur parse             --sequences h3nx_seg/h3nx_ha.fa             --output-sequences results/sequences_h3nx_ha.fasta             --output-metadata results/metadata_h3nx_ha.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Fri Apr 14 18:12:27 2023]
+Job 21: Parsing fasta into sequences and metadata
+
+
+        augur parse             --sequences h3nx_seg/h3nx_pb1.fa             --output-sequences results/sequences_h3nx_pb1.fasta             --output-metadata results/metadata_h3nx_pb1.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Fri Apr 14 18:12:27 2023]
+Job 31: Parsing fasta into sequences and metadata
+
+
+        augur parse             --sequences h3nx_seg/h3nx_np.fa             --output-sequences results/sequences_h3nx_np.fasta             --output-metadata results/metadata_h3nx_np.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Fri Apr 14 18:12:27 2023]
+Job 41: Parsing fasta into sequences and metadata
+
+
+        augur parse             --sequences h3nx_seg/h3nx_ns.fa             --output-sequences results/sequences_h3nx_ns.fasta             --output-metadata results/metadata_h3nx_ns.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+
+[Fri Apr 14 18:12:27 2023]
+Job 16: Parsing fasta into sequences and metadata
+
+
+        augur parse             --sequences h3nx_seg/h3nx_pb2.fa             --output-sequences results/sequences_h3nx_pb2.fasta             --output-metadata results/metadata_h3nx_pb2.tsv             --fields strain accession subtype date host country             --prettify-fields country host
+        
+InputFunctionException in line 107 of /nextstrain/build/Snakefile:
+KeyError: 'h3nx'
+Wildcards:
+subtype=h3nx
+segment=na
